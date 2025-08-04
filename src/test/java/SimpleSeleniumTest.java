@@ -28,8 +28,7 @@ public class SimpleSeleniumTest {
         searchBox.submit();
 
         // 5. 打印页面标题
-        System.out.println("页面标题是: " + driver.getTitle());
-
+        System.out.println("搜索完成，页面标题是: " + driver.getTitle());
         // 6. 等待几秒钟，以便观察结果
         Thread.sleep(5000); // 在实际项目中不推荐使用 Thread.sleep，应使用显式等待
 
