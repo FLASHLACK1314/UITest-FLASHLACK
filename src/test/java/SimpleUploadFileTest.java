@@ -20,7 +20,7 @@ public class SimpleUploadFileTest {
         // 显式等待文件输入框出现
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement fileInput = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("fileInput")));
+                d -> d.findElement(By.id("fileInput")));
         String filePath = "C:\\Users\\flash\\Desktop\\测算资源\\test-尺寸不符合规格.png";
         fileInput.sendKeys(filePath);
 
@@ -35,12 +35,6 @@ public class SimpleUploadFileTest {
         assert result.isDisplayed();
         System.out.println("文件上传成功，页面显示: " + result.getText());
 
-        // 等待10秒钟以便观察结果，然后自动关闭浏览器
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         driver.quit();
     }
 }
