@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SimpleSeleniumTest {
     @Test
-    public void testGoogleSearch() throws InterruptedException {
+    public void testGoogleSearch() {
         // 使用 WebDriverManager 自动配置 ChromeDriver
         WebDriverManager.chromedriver().setup();
 
