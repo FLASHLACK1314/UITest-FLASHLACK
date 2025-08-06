@@ -17,12 +17,18 @@ public class SimpleInputPageTest {
         driver.get("https://practice.expandtesting.com/inputs");
         // 等待页面加载完成
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement inputField = wait.until(
+        WebElement inputNumberField = wait.until(
                 d -> d.findElement(By.id("input-number")));
         String inputFieldId = "123456";
         // 输入数字
-        inputField.sendKeys(inputFieldId);
-        assert inputField.getAttribute("value").equals(inputFieldId) : "输入框内容不正确";
+        inputNumberField.sendKeys(inputFieldId);
+        WebElement inputTextField = wait.until(
+                d -> d.findElement(By.id("input-text")));
+        String inputText = "测试输入框";
+        // 输入文本
+        inputTextField.sendKeys(inputText);
+        assert inputNumberField.getAttribute("value").equals(inputFieldId) : "输入数字框内容不正确";
+        assert inputTextField.getAttribute("value").equals(inputText) : "输入文本框内容不正确";
 
         driver.quit();
     }
